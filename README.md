@@ -1,7 +1,6 @@
 <div align="center">
 
 # 🚀 ATS Resume Analyzer
-visit:https://ats-resume-analyzer-ngrg4dcaekqzexgukv4vcr.streamlit.app/
 
 ### AI-Powered Resume Screening & ATS Match System
 🌐 **Live Demo:**  
