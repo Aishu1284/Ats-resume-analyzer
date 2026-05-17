@@ -7,7 +7,7 @@ from PyPDF2 import PdfReader
 from google import genai
 
 # Configure Gemini Client
-client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+client = genai.Client(api_key=st.secrets["GOOGLE_API_KEY"])
 
 
 # -----------------------------
