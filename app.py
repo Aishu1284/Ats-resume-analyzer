@@ -79,17 +79,27 @@ Upload your resume, paste a job description, and get an AI-powered ATS analysis 
 <hr>
 """, unsafe_allow_html=True)
 
-input_text = st.text_area(
-    "Enter Job Description"
-)
+col1, col2 = st.columns(2)
 
-uploaded_file = st.file_uploader(
-    "Upload Resume (PDF)",
-    type=["pdf"]
-)
+with col1:
+    st.subheader("💼 Job Description")
 
-if uploaded_file is not None:
-    st.success("Resume Uploaded Successfully")
+    input_text = st.text_area(
+        "",
+        height=300,
+        placeholder="Paste the complete job description here..."
+    )
+
+with col2:
+    st.subheader("📄 Upload Resume")
+
+    uploaded_file = st.file_uploader(
+        "",
+        type=["pdf"]
+    )
+
+    if uploaded_file is not None:
+        st.success("✅ Resume Uploaded Successfully")
 
 
 # Buttons
