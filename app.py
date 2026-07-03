@@ -190,7 +190,7 @@ if submit1:
                 prompt1
             )
 
-       display_result("📝 Resume Review", response)
+        display_result("📝 Resume Review", response)
 
     else:
         st.error("Please upload a resume")
