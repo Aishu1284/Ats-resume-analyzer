@@ -7,7 +7,7 @@ from PyPDF2 import PdfReader
 from google import genai
 
 def load_css():
-    with open("styles/style.css") as f:
+    with open("style/style.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Configure Gemini Client
