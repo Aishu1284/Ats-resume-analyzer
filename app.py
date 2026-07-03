@@ -64,6 +64,7 @@ st.set_page_config(
 )
 
 st.markdown("""
+
 <h1 style='text-align:center; color:#4F8BF9;'>
 🚀 ATS Resume Analyzer
 </h1>
@@ -77,6 +78,35 @@ Upload your resume, paste a job description, and get an AI-powered ATS analysis 
 </p>
 
 <hr>
+""", unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+/* Green Buttons */
+div.stButton > button {
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+div.stButton > button:hover {
+    background-color: #15803d;
+    color: white;
+}
+
+/* Click */
+div.stButton > button:active {
+    background-color: #166534;
+    color: white;
+}
+
+</style>
 """, unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
@@ -108,17 +138,10 @@ st.markdown("<br>", unsafe_allow_html=True)
 btn1, btn2 = st.columns(2)
 
 with btn1:
-    submit1 = st.button(
-        "📝 Resume Review",
-        use_container_width=True
-    )
+    submit1 = st.button("📝 Resume Review", use_container_width=True)
 
 with btn2:
-    submit2 = st.button(
-        "🎯 ATS Match",
-        use_container_width=True
-    )
-
+    submit2 = st.button("🎯 ATS Match", use_container_width=True)
 
 # Prompts
 prompt1 = """
