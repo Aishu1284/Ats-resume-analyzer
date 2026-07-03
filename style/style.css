@@ -1,1 +1,158 @@
+/* ===========================================
+   ATS Resume Analyzer UI
+   =========================================== */
 
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Global ---------- */
+
+html,
+body,
+[class*="css"] {
+    font-family: "Poppins", sans-serif;
+}
+
+.stApp {
+    background-color: #F5F7FB;
+}
+
+/* Main Page Padding */
+.block-container {
+    padding-top: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 2rem;
+}
+
+/* Hide Streamlit Footer */
+footer {
+    visibility: hidden;
+}
+
+/* ===========================================
+   Buttons
+   =========================================== */
+
+div.stButton > button {
+    width: 100%;
+    background: #16A34A;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+div.stButton > button:hover {
+    background: #15803D;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(22,163,74,.30);
+}
+
+div.stButton > button:active {
+    background: #166534;
+}
+
+/* ===========================================
+   Text Area
+   =========================================== */
+
+textarea {
+    border-radius: 12px !important;
+    border: 2px solid #D1D5DB !important;
+    font-size: 16px !important;
+    padding: 10px !important;
+}
+
+textarea:focus {
+    border: 2px solid #4F8BF9 !important;
+    box-shadow: 0 0 10px rgba(79,139,249,.25);
+}
+
+/* ===========================================
+   File Uploader
+   =========================================== */
+
+[data-testid="stFileUploader"] {
+    background: white;
+    border: 2px dashed #4F8BF9;
+    border-radius: 15px;
+    padding: 16px;
+}
+
+/* ===========================================
+   Success Message
+   =========================================== */
+
+[data-testid="stAlert"] {
+    border-radius: 10px;
+}
+
+/* ===========================================
+   Section Cards
+   =========================================== */
+
+.section-card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    margin-bottom: 18px;
+}
+
+.section-card h2 {
+    margin: 0;
+    color: #1F2937;
+    font-weight: 600;
+}
+
+.section-card p {
+    margin-top: 10px;
+    color: #6B7280;
+    font-size: 16px;
+}
+
+/* ===========================================
+   Horizontal Line
+   =========================================== */
+
+hr {
+    border: none;
+    border-top: 1px solid #E5E7EB;
+    margin: 25px 0;
+}
+
+/* ===========================================
+   Scrollbar
+   =========================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+/* ===========================================
+   Responsive
+   =========================================== */
+
+@media (max-width: 768px) {
+
+    .block-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+}
