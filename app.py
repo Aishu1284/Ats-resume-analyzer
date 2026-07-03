@@ -56,9 +56,28 @@ def extract_text_from_pdf(uploaded_file):
 # -----------------------------
 # Streamlit UI
 # -----------------------------
-st.set_page_config(page_title="ATS Resume Expert")
+st.set_page_config(
+    page_title="ATS Resume Analyzer",
+    page_icon="📄",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-st.header("ATS Resume Tracking System")
+st.markdown("""
+<h1 style='text-align:center; color:#4F8BF9;'>
+🚀 ATS Resume Analyzer
+</h1>
+
+<h4 style='text-align:center; color:gray;'>
+AI-Powered Resume Screening & Job Description Matching
+</h4>
+
+<p style='text-align:center; font-size:18px;'>
+Upload your resume, paste a job description, and get an AI-powered ATS analysis in seconds.
+</p>
+
+<hr>
+""", unsafe_allow_html=True)
 
 input_text = st.text_area(
     "Enter Job Description"
