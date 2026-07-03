@@ -1,3 +1,4 @@
+import json
 import plotly.graph_objects as go
 from dotenv import load_dotenv
 load_dotenv()
@@ -92,7 +93,7 @@ def show_ats_score(score):
 
     st.plotly_chart(fig, use_container_width=True)
 
-show_ats_score(88)
+
 
 # -----------------------------
 # Streamlit UI
@@ -214,34 +215,34 @@ Write a short conclusion.
 prompt2 = """
 You are an expert ATS Resume Analyzer.
 
-Compare the resume with the given job description.
+Analyze the resume against the job description.
 
-Return the result ONLY in the following Markdown format.
+Return ONLY valid JSON.
 
-# ATS Match Score
-Give a percentage out of 100.
+{
+  "ats_score": 88,
+  "summary": "Short summary",
+  "strengths": [
+    "Strong Python",
+    "Good Projects",
+    "Good Education"
+  ],
+  "missing_keywords": [
+    "Docker",
+    "AWS",
+    "CI/CD"
+  ],
+  "suggestions": [
+    "Add Docker project",
+    "Mention quantified achievements",
+    "Improve technical keywords"
+  ],
+  "final_verdict": "Good match for this role."
+}
 
-# Missing Keywords
-- keyword1
-- keyword2
-- keyword3
-
-# Skills Analysis
-### Strengths
-- Point 1
-- Point 2
-
-### Weaknesses
-- Point 1
-- Point 2
-
-# Resume Improvement Suggestions
-- Suggestion 1
-- Suggestion 2
-- Suggestion 3
-
-# Final Verdict
-Write 3-4 lines explaining whether this resume is suitable for the job.
+Return only JSON.
+Do not include markdown.
+Do not include explanation.
 """
 
 # -----------------------------
@@ -285,7 +286,15 @@ if submit2:
                 prompt2
             )
 
-        display_result("🎯 ATS Match Report", response)
+        try:
+            result = json.loads(response)
+
+            show_ats_score(result["ats_score"])
+
+            st.success(result["summary"])
+
+        except Exception:
+            st.write(response)
 
     else:
         st.error("Please upload a resume")
