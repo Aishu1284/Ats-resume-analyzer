@@ -287,14 +287,55 @@ if submit2:
             )
 
         try:
-            result = json.loads(response)
+            # Clean Gemini response
+            clean_response = (
+                response.replace("```json", "")
+                        .replace("```", "")
+                        .strip()
+            )
 
+            # Convert JSON string to Python dictionary
+            result = json.loads(clean_response)
+
+            # Show ATS Gauge
             show_ats_score(result["ats_score"])
 
+            # Summary
             st.success(result["summary"])
 
-        except Exception:
-            st.write(response)
+            # Create two columns
+            col1, col2 = st.columns(2)
+
+            # Left Column
+            with col1:
+
+                st.subheader("✅ Strengths")
+
+                for strength in result["strengths"]:
+                    st.success(strength)
+
+                st.subheader("💡 Suggestions")
+
+                for suggestion in result["suggestions"]:
+                    st.info(suggestion)
+
+            # Right Column
+            with col2:
+
+                st.subheader("❌ Missing Keywords")
+
+                for keyword in result["missing_keywords"]:
+                    st.error(keyword)
+
+                st.subheader("📌 Final Verdict")
+
+                st.warning(result["final_verdict"])
+
+        except Exception as e:
+
+            st.error("Unable to parse Gemini response.")
+
+            st.code(response)
 
     else:
-        st.error("Please upload a resume")
+        st.error("Please upload a resume.")
