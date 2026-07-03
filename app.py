@@ -103,8 +103,21 @@ with col2:
 
 
 # Buttons
-submit1 = st.button("Resume Review")
-submit2 = st.button("ATS Match")
+st.markdown("<br>", unsafe_allow_html=True)
+
+btn1, btn2 = st.columns(2)
+
+with btn1:
+    submit1 = st.button(
+        "📝 Resume Review",
+        use_container_width=True
+    )
+
+with btn2:
+    submit2 = st.button(
+        "🎯 ATS Match",
+        use_container_width=True
+    )
 
 
 # Prompts
