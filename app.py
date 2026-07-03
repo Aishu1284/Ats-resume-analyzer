@@ -117,7 +117,6 @@ div.stButton > button:active {
 """, unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
-
 with col1:
 
     st.markdown('<div class="custom-card">', unsafe_allow_html=True)
@@ -131,8 +130,7 @@ with col1:
     )
 
     st.markdown("</div>", unsafe_allow_html=True)
-
-    if uploaded_file is not None:
+if uploaded_file is not None:
         st.success("✅ Resume Uploaded Successfully")
 
 
