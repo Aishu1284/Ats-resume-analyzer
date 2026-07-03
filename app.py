@@ -151,27 +151,66 @@ with btn2:
 prompt1 = """
 You are an experienced HR Manager.
 
-Review the resume against the job description.
+Review the resume professionally.
 
-Provide:
-1. Strengths
-2. Weaknesses
-3. Missing Skills
-4. Final Evaluation
+Return the result ONLY in the following Markdown format.
+
+# Resume Summary
+
+# Strengths
+- Point 1
+- Point 2
+- Point 3
+
+# Weaknesses
+- Point 1
+- Point 2
+
+# Missing Skills
+- Skill 1
+- Skill 2
+
+# Improvement Suggestions
+- Suggestion 1
+- Suggestion 2
+- Suggestion 3
+
+# Final Evaluation
+Write a short conclusion.
 """
 
 prompt2 = """
-You are an ATS scanner.
+You are an expert ATS Resume Analyzer.
 
-Compare the resume with the job description.
+Compare the resume with the given job description.
 
-Return:
-1. ATS Match Percentage
-2. Missing Keywords
-3. Skills Analysis
-4. Final Thoughts
+Return the result ONLY in the following Markdown format.
+
+# ATS Match Score
+Give a percentage out of 100.
+
+# Missing Keywords
+- keyword1
+- keyword2
+- keyword3
+
+# Skills Analysis
+### Strengths
+- Point 1
+- Point 2
+
+### Weaknesses
+- Point 1
+- Point 2
+
+# Resume Improvement Suggestions
+- Suggestion 1
+- Suggestion 2
+- Suggestion 3
+
+# Final Verdict
+Write 3-4 lines explaining whether this resume is suitable for the job.
 """
-
 
 # -----------------------------
 # Resume Review
