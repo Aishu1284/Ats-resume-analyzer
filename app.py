@@ -128,10 +128,21 @@ with col1:
         height=300,
         placeholder="Paste the complete job description here..."
     )
+with col2:
+
+    st.markdown('<div class="custom-card">', unsafe_allow_html=True)
+
+    st.subheader("📄 Upload Resume")
+
+    uploaded_file = st.file_uploader(
+        "",
+        type=["pdf"]
+    )
+
+    if uploaded_file is not None:
+        st.success("✅ Resume Uploaded Successfully")
 
     st.markdown("</div>", unsafe_allow_html=True)
-if uploaded_file is not None:
-        st.success("✅ Resume Uploaded Successfully")
 
 
 # Buttons
