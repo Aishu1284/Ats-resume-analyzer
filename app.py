@@ -6,6 +6,10 @@ import os
 from PyPDF2 import PdfReader
 from google import genai
 
+def load_css():
+    with open("styles/style.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 # Configure Gemini Client
 client = genai.Client(api_key=st.secrets["GOOGLE_API_KEY"])
 
@@ -62,17 +66,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed"
 )
-st.markdown("""
-<style>
-
-.block-container{
-    padding-top:2rem;
-    padding-left:3rem;
-    padding-right:3rem;
-}
-
-</style>
-""", unsafe_allow_html=True)
+load_css()
 
 st.markdown("""
 <div style="
@@ -99,72 +93,6 @@ and receive an AI-powered ATS report within seconds.
 </p>
 
 </div>
-""", unsafe_allow_html=True)
-
-
-st.markdown("""
-<style>
-
-/* Main App Background */
-.stApp {
-    background: #F5F7FB;
-}
-
-/* Text Area */
-textarea {
-    border-radius: 12px !important;
-    border: 2px solid #D1D5DB !important;
-    font-size: 16px !important;
-}
-
-/* File Uploader */
-[data-testid="stFileUploader"] {
-    border: 2px dashed #4F8BF9;
-    border-radius: 15px;
-    background: white;
-    padding: 15px;
-}
-
-/* Success Message */
-[data-testid="stAlert"] {
-    border-radius: 12px;
-}
-
-/* Green Buttons */
-div.stButton > button {
-    background-color: #16a34a;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 20px;
-    font-size: 17px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-/* Hover */
-div.stButton > button:hover {
-    background-color: #15803d;
-    color: white;
-}
-
-/* Click */
-div.stButton > button:active {
-    background-color: #166534;
-    color: white;
-}
-
-/* Section Card */
-.section-card {
-    background: white;
-    border-radius: 18px;
-    padding: 25px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    border: 1px solid #E5E7EB;
-    margin-bottom: 20px;
-}
-
-</style>
 """, unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
