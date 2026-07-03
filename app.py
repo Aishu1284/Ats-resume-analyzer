@@ -184,34 +184,37 @@ with btn2:
 prompt1 = """
 You are an experienced HR Manager.
 
-Review the resume professionally.
+Analyze the resume professionally.
 
-Return the result ONLY in the following Markdown format.
+Return ONLY valid JSON.
 
-# Resume Summary
+{
+    "summary":"Short professional summary",
+    "strengths":[
+        "Strength 1",
+        "Strength 2",
+        "Strength 3"
+    ],
+    "weaknesses":[
+        "Weakness 1",
+        "Weakness 2"
+    ],
+    "missing_skills":[
+        "Skill 1",
+        "Skill 2"
+    ],
+    "suggestions":[
+        "Suggestion 1",
+        "Suggestion 2",
+        "Suggestion 3"
+    ],
+    "final_evaluation":"Final HR evaluation."
+}
 
-# Strengths
-- Point 1
-- Point 2
-- Point 3
-
-# Weaknesses
-- Point 1
-- Point 2
-
-# Missing Skills
-- Skill 1
-- Skill 2
-
-# Improvement Suggestions
-- Suggestion 1
-- Suggestion 2
-- Suggestion 3
-
-# Final Evaluation
-Write a short conclusion.
+Return only JSON.
+Do not use markdown.
+Do not add explanations.
 """
-
 prompt2 = """
 You are an expert ATS Resume Analyzer.
 
@@ -262,11 +265,57 @@ if submit1:
                 prompt1
             )
 
-        display_result("📝 Resume Review", response)
-        # -----------------------------
+        try:
+
+            clean_response = (
+                response.replace("```json", "")
+                        .replace("```", "")
+                        .strip()
+            )
+
+            result = json.loads(clean_response)
+
+            st.success(result["summary"])
+
+            col1, col2 = st.columns(2)
+
+            # Left Column
+            with col1:
+
+                st.subheader("✅ Strengths")
+
+                for strength in result["strengths"]:
+                    st.success(strength)
+
+                st.subheader("❌ Weaknesses")
+
+                for weakness in result["weaknesses"]:
+                    st.error(weakness)
+
+            # Right Column
+            with col2:
+
+                st.subheader("📌 Missing Skills")
+
+                for skill in result["missing_skills"]:
+                    st.warning(skill)
+
+                st.subheader("💡 Suggestions")
+
+                for suggestion in result["suggestions"]:
+                    st.info(suggestion)
+
+            st.markdown("### ⭐ Final Evaluation")
+            st.success(result["final_evaluation"])
+
+        except Exception:
+
+            st.error("Unable to parse Gemini response.")
+
+            st.code(response)
 
     else:
-        st.error("Please upload a resume")
+        st.error("Please upload a resume.")
 
 
 # -----------------------------
