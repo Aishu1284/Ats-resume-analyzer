@@ -105,13 +105,23 @@ div.stButton > button:active {
     background-color: #166534;
     color: white;
 }
-
+.custom-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    border:1px solid #E5E7EB;
+    margin-bottom:20px;
+}
 </style>
 """, unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
 with col1:
+
+    st.markdown('<div class="custom-card">', unsafe_allow_html=True)
+
     st.subheader("💼 Job Description")
 
     input_text = st.text_area(
@@ -120,13 +130,7 @@ with col1:
         placeholder="Paste the complete job description here..."
     )
 
-with col2:
-    st.subheader("📄 Upload Resume")
-
-    uploaded_file = st.file_uploader(
-        "",
-        type=["pdf"]
-    )
+    st.markdown("</div>", unsafe_allow_html=True)
 
     if uploaded_file is not None:
         st.success("✅ Resume Uploaded Successfully")
