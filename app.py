@@ -56,6 +56,12 @@ def extract_text_from_pdf(uploaded_file):
 
     return text
 
+def display_result(title, response):
+
+    st.markdown(f"## {title}")
+
+    with st.container(border=True):
+        st.markdown(response)
 
 # -----------------------------
 # Streamlit UI
@@ -184,8 +190,7 @@ if submit1:
                 prompt1
             )
 
-        st.subheader("Resume Review")
-        st.write(response)
+       display_result("📝 Resume Review", response)
 
     else:
         st.error("Please upload a resume")
@@ -208,8 +213,7 @@ if submit2:
                 prompt2
             )
 
-        st.subheader("ATS Match Result")
-        st.write(response)
+        display_result("🎯 ATS Match Report", response)
 
     else:
         st.error("Please upload a resume")
