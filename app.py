@@ -154,31 +154,54 @@ div.stButton > button:active {
     color: white;
 }
 
+/* Section Card */
+.section-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #E5E7EB;
+    margin-bottom: 20px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 with col1:
-    with st.container():
-        st.subheader("💼 Job Description")
 
-        input_text = st.text_area(
-            "",
-            height=300,
-            placeholder="Paste the complete job description here..."
-        )
+    st.markdown("""
+    <div class="section-card">
+        <h2>💼 Job Description</h2>
+        <p style="color:gray;">
+        Paste the complete job description below.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    input_text = st.text_area(
+        "",
+        height=300,
+        placeholder="Paste the complete job description here..."
+    )
 with col2:
-    with st.container():
-        st.subheader("📄 Upload Resume")
 
-        uploaded_file = st.file_uploader(
-            "",
-            type=["pdf"]
-        )
+    st.markdown("""
+    <div class="section-card">
+        <h2>📄 Upload Resume</h2>
+        <p style="color:gray;">
+        Upload your resume in PDF format.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-        if uploaded_file is not None:
-            st.success("✅ Resume Uploaded Successfully")
+    uploaded_file = st.file_uploader(
+        "",
+        type=["pdf"]
+    )
 
+    if uploaded_file is not None:
+        st.success("✅ Resume Uploaded Successfully")
 # Buttons
 st.markdown("<br>", unsafe_allow_html=True)
 
