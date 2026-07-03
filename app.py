@@ -96,41 +96,40 @@ and receive an AI-powered ATS report within seconds.
 </div>
 """, unsafe_allow_html=True)
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([1.4, 1], gap="large")
+
+# ==========================
+# Job Description
+# ==========================
 with col1:
+    with st.container(border=True):
 
-    st.markdown("""
-    <div class="section-card">
-        <h2>💼 Job Description</h2>
-        <p style="color:gray;">
-        Paste the complete job description below.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+        st.subheader("💼 Job Description")
+        st.caption("Paste the complete job description below.")
 
-    input_text = st.text_area(
-        "",
-        height=300,
-        placeholder="Paste the complete job description here..."
-    )
+        input_text = st.text_area(
+            label="",
+            height=320,
+            placeholder="Paste the complete job description here..."
+        )
+
+# ==========================
+# Upload Resume
+# ==========================
 with col2:
+    with st.container(border=True):
 
-    st.markdown("""
-    <div class="section-card">
-        <h2>📄 Upload Resume</h2>
-        <p style="color:gray;">
-        Upload your resume in PDF format.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+        st.subheader("📄 Upload Resume")
+        st.caption("Upload your resume in PDF format.")
 
-    uploaded_file = st.file_uploader(
-        "",
-        type=["pdf"]
-    )
+        uploaded_file = st.file_uploader(
+            label="Choose Resume",
+            type=["pdf"],
+            label_visibility="collapsed"
+        )
 
-    if uploaded_file is not None:
-        st.success("✅ Resume Uploaded Successfully")
+        if uploaded_file:
+            st.success("✅ Resume Uploaded Successfully")
 # Buttons
 st.markdown("<br>", unsafe_allow_html=True)
 
