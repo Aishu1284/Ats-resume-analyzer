@@ -75,21 +75,33 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
+<div style="
+background: linear-gradient(135deg,#4F8BF9,#7C4DFF);
+padding:45px;
+border-radius:20px;
+text-align:center;
+color:white;
+margin-bottom:35px;
+box-shadow:0px 8px 25px rgba(0,0,0,0.15);
+">
 
-<h1 style='text-align:center; color:#4F8BF9;'>
+<h1 style="margin-bottom:10px;font-size:48px;">
 🚀 ATS Resume Analyzer
 </h1>
 
-<h4 style='text-align:center; color:gray;'>
+<h3 style="margin-top:0;">
 AI-Powered Resume Screening & Job Description Matching
-</h4>
+</h3>
 
-<p style='text-align:center; font-size:18px;'>
-Upload your resume, paste a job description, and get an AI-powered ATS analysis in seconds.
+<p style="font-size:18px;">
+Upload your resume, compare it with a job description,
+and receive an AI-powered ATS report within seconds.
 </p>
 
-<hr>
+</div>
 """, unsafe_allow_html=True)
+
+
 st.markdown("""
 <style>
 
